@@ -1,4 +1,6 @@
 - link:
+    ~/.tmux.conf:
+      force: true
     ~/.gitconfig:
       force: true
     ~/.oh-my-zsh/custom/vscode.zsh:
