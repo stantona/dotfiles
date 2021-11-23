@@ -1,0 +1,25 @@
+[alias]
+  co = checkout
+  d = diff
+  dc = diff --cached
+  lp = log --patch
+  cob = checkout -b
+  tree = log --graph --pretty=online --abbrev-commit --decorate --branches
+[branch]
+  autosetuprebase = always
+[user]
+  name = Adam Stanton
+  email = adam.stanton@clio.com
+[core]
+  editor = code --wait
+  preloadindex = true
+[color]
+  status = auto
+  branch = auto
+  interactive = auto
+  diff = auto
+[diff]
+  tool = ediff
+[merge]
+  tool = ediff
+  ff = only
