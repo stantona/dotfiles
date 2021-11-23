@@ -1,3 +1,7 @@
 - link:
     ~/.gitconfig:
       force: true
+    ~/.oh-my-zsh/custom/vscode.zsh:
+      if: '[ `uname` = Darwin ]'
+      path: oh-my-zsh/custom/vscode.zsh
+      force: true
