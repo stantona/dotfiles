@@ -1,6 +1,7 @@
 [alias]
   co = checkout
   d = diff
+  s = status
   dc = diff --cached
   lp = log --patch
   cob = checkout -b
