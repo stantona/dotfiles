@@ -17,6 +17,6 @@ git submodule update --init --recursive "${DOTBOT_DIR}"
 if [[ "${CODESPACES:-}" == 'true' ]]; then
   # Install Solargraph Ruby Language Server
   if command -v gem &>/dev/null; then
-    gem install solargraph
+    gem install --quiet solargraph
   fi
 fi
