@@ -5,6 +5,8 @@
   dc = diff --cached
   lp = log --patch
   cob = checkout -b
+  cm = commit -m
+  po = push origin
   tree = log --graph --pretty=online --abbrev-commit --decorate --branches
 [branch]
   autosetuprebase = always
