@@ -1,4 +1,6 @@
 - link:
+    ~/.zshrc:
+      force: true
     ~/.tmux.conf:
       force: true
     ~/.gitconfig:
