@@ -14,9 +14,22 @@ git submodule update --init --recursive "${DOTBOT_DIR}"
 
 "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}" "${@}"
 
+# Install tools for Codespaces only
 if [[ "${CODESPACES:-}" == 'true' ]]; then
   # Install Solargraph Ruby Language Server
   if command -v gem &>/dev/null; then
     gem install --quiet solargraph
   fi
+fi
+
+# Install Maxosx tools
+if [[ $(uname) == 'Darwin' ]]; then
+  brew install \
+    fzf \
+    htop \
+    the_silver_searcher \
+    tmux \
+    gh \
+    terraform \
+    terragrunt
 fi
