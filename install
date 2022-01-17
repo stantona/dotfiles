@@ -24,12 +24,13 @@ fi
 
 # Install Maxosx tools
 if [[ $(uname) == 'Darwin' ]]; then
-  brew install \
+  arch -arm64 brew install \
     fzf \
     htop \
     the_silver_searcher \
     tmux \
     gh \
     terraform \
-    terragrunt
+    terragrunt \
+    jq
 fi
