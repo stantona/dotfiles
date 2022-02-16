@@ -10,6 +10,6 @@
       path: oh-my-zsh/custom/macosx.zsh
       force: true
     ~/.oh-my-zsh/custom/codespaces.zsh:
-      if: '[ "${CODESPACES}" = true' ]'
+      if: '[ "${CODESPACES}" = true ]'
       path: oh-my-zsh/custom/codespaces.zsh
       force: true
