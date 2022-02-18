@@ -15,13 +15,14 @@ git submodule update --init --recursive "${DOTBOT_DIR}"
 # Install configuration for all profiles
 for PROFILE_DIR in profiles/*; do
   PROFILE="$(basename "${PROFILE_DIR}")"
+  DETECT_CMD="${PROFILE_DIR}/detect"
 
-  if [[  ! -f "${PROFILE_DIR}/run_profile" ]]; then
-    echo "No ${PROFILE_DIR}/run_profile file for profile ${PROFILE}; skipping"
+  if [[  ! -f "${DETECT_CMD}" ]]; then
+    echo "No ${DETECT_CMD} file for profile ${PROFILE}; skipping"
     continue
   fi
 
-  if "${PROFILE_DIR}"/run_profile; then
+  if "${DETECT_CMD}"; then
     printf "\033[0;32m==> 🟢 Profile ${PROFILE} detected: running dotbot\033[0m\n"
      "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${PROFILE_DIR}/install.conf.yaml" "${@}"
     printf "\033[0;32m==> ✅ Profile ${PROFILE} configured.\n"
