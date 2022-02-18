@@ -1,0 +1,8 @@
+- defaults:
+    link:
+      force: true
+- link:
+    ~/.oh-my-zsh/custom/macosx.zsh:
+      path: oh-my-zsh/custom/macosx.zsh
+- shell:
+  - xargs arch -arm64 brew install < packages.mac

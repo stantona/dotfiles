@@ -12,27 +12,18 @@ cd "${BASEDIR}"
 git -C "${DOTBOT_DIR}" submodule sync --quiet --recursive
 git submodule update --init --recursive "${DOTBOT_DIR}"
 
+printf "\033[0;32mInstalling standard config (${CONFIG})\033[0m\n"
 "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}" "${@}"
+echo
 
-# Install tools for Codespaces only
-if [[ "${CODESPACES:-}" == 'true' ]]; then
-  # Install Solargraph Ruby Language Server
-  if command -v gem &>/dev/null; then
-    sudo gem install --quiet solargraph
-  fi
-  sudo apt update
-  sudo apt install silversearcher-ag
+# For Debian based systems
+if [[ -f "/etc/debian_version" ]] && [[  -f install.debian.conf.yaml ]]; then
+  printf "\033[0;32mDetected 🐧 (Debian): Installing config for Debian (install.debian.conf.yaml)\033[0m\n"
+  "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "install.debian.conf.yaml" "${@}"
 fi
 
 # Install Maxosx tools
-if [[ $(uname) == 'Darwin' ]]; then
-  arch -arm64 brew install \
-    fzf \
-    htop \
-    the_silver_searcher \
-    tmux \
-    gh \
-    terraform \
-    terragrunt \
-    jq
+if [[ $(uname) == 'Darwin' ]] && [[ -f install.mac.conf.yaml ]]; then
+  printf "\033[0;32mDetected : Installing config for Mac (install.mac.conf.yaml)\033[0m\n"
+  "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "install.mac.conf.yaml" "${@}"
 fi
