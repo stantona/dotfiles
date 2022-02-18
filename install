@@ -12,18 +12,22 @@ cd "${BASEDIR}"
 git -C "${DOTBOT_DIR}" submodule sync --quiet --recursive
 git submodule update --init --recursive "${DOTBOT_DIR}"
 
-printf "\033[0;32mInstalling standard config (${CONFIG})\033[0m\n"
-"${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}" "${@}"
-echo
+# Install configuration for all profiles
+for PROFILE_DIR in profiles/*; do
+  PROFILE="$(basename "${PROFILE_DIR}")"
 
-# For Debian based systems
-if [[ -f "/etc/debian_version" ]] && [[  -f install.debian.conf.yaml ]]; then
-  printf "\033[0;32mDetected 🐧 (Debian): Installing config for Debian (install.debian.conf.yaml)\033[0m\n"
-  "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "install.debian.conf.yaml" "${@}"
-fi
+  if [[  ! -f "${PROFILE_DIR}/run_profile" ]]; then
+    echo "No ${PROFILE_DIR}/run_profile file for profile ${PROFILE}; skipping"
+    continue
+  fi
 
-# Install Maxosx tools
-if [[ $(uname) == 'Darwin' ]] && [[ -f install.mac.conf.yaml ]]; then
-  printf "\033[0;32mDetected : Installing config for Mac (install.mac.conf.yaml)\033[0m\n"
-  "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "install.mac.conf.yaml" "${@}"
-fi
+  if "${PROFILE_DIR}"/run_profile; then
+    printf "\033[0;32m==> 🟢 Profile ${PROFILE} detected: running dotbot\033[0m\n"
+     "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${PROFILE_DIR}/install.conf.yaml" "${@}"
+    printf "\033[0;32m==> ✅ Profile ${PROFILE} configured.\n"
+
+  else
+    printf "\033[0;32m==> 🟡 Profile ${PROFILE} not detected: skipping dotbot\033[0m\n"
+  fi
+  echo
+done

@@ -1,0 +1,11 @@
+- defaults:
+    link:
+      force: true
+- create:
+  - ~/Documents/Projects/personal
+  - ~/Documents/Projects/clio
+- link:
+    ~/.oh-my-zsh/custom/macosx.zsh:
+      path: profiles/clio-mac/oh-my-zsh/custom/macosx.zsh
+- shell:
+  - xargs arch -arm64 brew install < profiles/clio-mac/packages

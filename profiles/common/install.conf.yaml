@@ -1,0 +1,9 @@
+- defaults:
+    link:
+      force: true
+- clean: ['~']
+- link:
+    ~/:
+      glob: true
+      path: profiles/common/config/*
+      prefix: "."
