@@ -5,5 +5,4 @@
 - link:
     ~/:
       glob: true
-      path: profiles/common/config/*
-      prefix: "."
+      path: profiles/common/config/.*
