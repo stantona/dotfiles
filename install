@@ -12,27 +12,17 @@ cd "${BASEDIR}"
 git -C "${DOTBOT_DIR}" submodule sync --quiet --recursive
 git submodule update --init --recursive "${DOTBOT_DIR}"
 
+echo "Install from: ${CONFIG}"
 "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}" "${@}"
+echo
 
-# Install tools for Codespaces only
-if [[ "${CODESPACES:-}" == 'true' ]]; then
-  # Install Solargraph Ruby Language Server
-  if command -v gem &>/dev/null; then
-    sudo gem install --quiet solargraph
-  fi
-  sudo apt update
-  sudo apt install silversearcher-ag
+# For Debian based systems
+if [[ -f "/etc/debian_version" ]] && [[  -f install.debian.conf.yaml ]]; then
+  "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "install.debian.conf.yaml" "${@}"
 fi
 
 # Install Maxosx tools
-if [[ $(uname) == 'Darwin' ]]; then
-  arch -arm64 brew install \
-    fzf \
-    htop \
-    the_silver_searcher \
-    tmux \
-    gh \
-    terraform \
-    terragrunt \
-    jq
+if [[ $(uname) == 'Darwin' ]] && [[ -f install.mac.conf.yaml ]]; then
+  echo "Install from: install.mac.conf.yaml"
+  "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "install.mac.conf.yaml" "${@}"
 fi

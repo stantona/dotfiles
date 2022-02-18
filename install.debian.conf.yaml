@@ -1,0 +1,8 @@
+- defaults:
+    link:
+      force: true
+- link:
+    ~/.oh-my-zsh/custom/debian.zsh:
+      path: oh-my-zsh/custom/debian.zsh
+- shell:
+  - sudo apt update && sudo apt install -yq jq silversearcher-ag fzf htop
