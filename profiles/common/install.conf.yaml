@@ -1,0 +1,11 @@
+- defaults:
+    link:
+      force: true
+
+- link:
+    ~/.zshrc:
+      path: profiles/common/zshrc
+    ~/.tmux.conf:
+      path: profiles/common/tmux.conf
+    ~/.gitconfig:
+      path: profiles/common/gitconfig
