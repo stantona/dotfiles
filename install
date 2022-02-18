@@ -22,7 +22,12 @@ for PROFILE_DIR in profiles/*; do
   fi
 
   if "${PROFILE_DIR}"/run_profile; then
-    printf "\033[0;32mProfile ${PROFILE} detected: running dotbot\033[0m\n"
+    printf "\033[0;32m==> 🟢 Profile ${PROFILE} detected: running dotbot\033[0m\n"
      "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${PROFILE_DIR}/install.conf.yaml" "${@}"
+    printf "\033[0;32m==> ✅ Profile ${PROFILE} configured.\n"
+
+  else
+    printf "\033[0;32m==> 🟡 Profile ${PROFILE} not detected: skipping dotbot\033[0m\n"
   fi
+  echo
 done

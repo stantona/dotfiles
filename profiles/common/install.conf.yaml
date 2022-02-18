@@ -1,11 +1,9 @@
 - defaults:
     link:
       force: true
-
+- clean: ['~']
 - link:
-    ~/.zshrc:
-      path: profiles/common/zshrc
-    ~/.tmux.conf:
-      path: profiles/common/tmux.conf
-    ~/.gitconfig:
-      path: profiles/common/gitconfig
+    ~/:
+      glob: true
+      path: profiles/common/config/*
+      prefix: "."
