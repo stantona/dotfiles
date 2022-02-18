@@ -5,4 +5,4 @@
     ~/.oh-my-zsh/custom/macosx.zsh:
       path: oh-my-zsh/custom/macosx.zsh
 - shell:
-  - arch -arm64 brew install fzf htop the_silver_searcher tmux gh jq
+  - xargs arch -arm64 brew install < packages.mac

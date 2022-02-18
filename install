@@ -12,17 +12,18 @@ cd "${BASEDIR}"
 git -C "${DOTBOT_DIR}" submodule sync --quiet --recursive
 git submodule update --init --recursive "${DOTBOT_DIR}"
 
-echo "Install from: ${CONFIG}"
+printf "\033[0;32mInstalling standard config (${CONFIG})\033[0m\n"
 "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}" "${@}"
 echo
 
 # For Debian based systems
 if [[ -f "/etc/debian_version" ]] && [[  -f install.debian.conf.yaml ]]; then
+  printf "\033[0;32mDetected 🐧 (Debian): Installing config for Debian (install.debian.conf.yaml)\033[0m\n"
   "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "install.debian.conf.yaml" "${@}"
 fi
 
 # Install Maxosx tools
 if [[ $(uname) == 'Darwin' ]] && [[ -f install.mac.conf.yaml ]]; then
-  echo "Install from: install.mac.conf.yaml"
+  printf "\033[0;32mDetected : Installing config for Mac (install.mac.conf.yaml)\033[0m\n"
   "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "install.mac.conf.yaml" "${@}"
 fi
