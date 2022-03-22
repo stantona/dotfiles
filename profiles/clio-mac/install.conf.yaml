@@ -8,4 +8,5 @@
     ~/.oh-my-zsh/custom/macosx.zsh:
       path: profiles/clio-mac/oh-my-zsh/custom/macosx.zsh
 - shell:
+  - brew tap weaveworks/tap
   - xargs arch -arm64 brew install < profiles/clio-mac/packages
