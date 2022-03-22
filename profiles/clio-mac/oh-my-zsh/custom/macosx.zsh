@@ -9,3 +9,8 @@ alias cdp="cd ${HOME}/Documents/Projects/personal"
 if command -v dev &>/dev/null; then
   eval "$(dev _hook)"
 fi
+
+# Enable kubectl auto-completion
+if command -v kubectl &>/dev/null; then
+  source <(kubectl completion zsh)
+fi
