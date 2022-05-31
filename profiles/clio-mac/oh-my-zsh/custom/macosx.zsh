@@ -8,5 +8,5 @@ alias cdp="cd ${HOME}/Documents/Projects/personal"
 # Enable kubectl auto-completion
 if command -v kubectl &>/dev/null; then
   source <(kubectl completion zsh)
+  alias k=kubectl
 fi
-
