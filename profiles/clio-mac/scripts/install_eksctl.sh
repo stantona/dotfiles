@@ -1,4 +1,5 @@
 #!/bin/bash
+# Instructions: https://docs.aws.amazon.com/eks/latest/userguide/eksctl.html
 
 if [[ -f /usr/local/bin/eksctl ]]; then
   sudo rm /usr/local/bin/eksctl
