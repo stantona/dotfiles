@@ -4,6 +4,7 @@ export DOTBOT_PROFILE_CLIO_MAC=1
 
 alias cdc="cd ${HOME}/Documents/Projects/clio"
 alias cdp="cd ${HOME}/Documents/Projects/personal"
+alias al="saml2aws login --skip-prompt"
 
 # Enable kubectl auto-completion
 if command -v kubectl &>/dev/null; then
