@@ -8,6 +8,8 @@
     ~/.oh-my-zsh/custom/macosx.zsh:
       path: profiles/clio-mac/oh-my-zsh/custom/macosx.zsh
 - shell:
+  - arch -arm64 brew update
   - xargs arch -arm64 brew install < profiles/clio-mac/packages
+  - xargs arch -arm64 brew upgrade < profiles/clio-mac/packages
   - ./profiles/clio-mac/scripts/install_kubectl.sh
   - ./profiles/clio-mac/scripts/install_eksctl.sh
