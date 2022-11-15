@@ -6,6 +6,16 @@ alias cdc="cd ${HOME}/Documents/Projects/clio"
 alias cdp="cd ${HOME}/Documents/Projects/personal"
 alias al="saml2aws login --skip-prompt"
 
+open-prs () {
+  local repo="${1:-}"
+
+  if [[ -z "${repo}" ]]; then
+    gh search prs --state=open --author "@me" --json url | jq --raw-output '.[] | .url'
+  else
+    gh search prs --repo "${repo}" --state=open --author "@me" --json url | jq --raw-output '.[] | .url'
+  fi
+}
+
 # Enable kubectl auto-completion
 if command -v kubectl &>/dev/null; then
   source <(kubectl completion zsh)
