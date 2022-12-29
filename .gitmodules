@@ -2,3 +2,12 @@
 	path = dotbot
 	url = https://github.com/anishathalye/dotbot
 	ignore = dirty
+[submodule "profiles/common/config/.vim/bundle/vim-colors-solarized"]
+	path = profiles/common/config/.vim/bundle/vim-colors-solarized
+	url = git@github.com:altercation/vim-colors-solarized.git
+[submodule "profiles/common/config/.vim/bundle/vim-ruby"]
+	path = profiles/common/config/.vim/bundle/vim-ruby
+	url = git@github.com:jlcrochet/vim-ruby.git
+[submodule "profiles/common/config/.vim/bundle/vim-terraform"]
+	path = profiles/common/config/.vim/bundle/vim-terraform
+	url = git@github.com:hashivim/vim-terraform.git
