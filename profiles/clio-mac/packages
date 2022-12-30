@@ -9,3 +9,4 @@ helm
 saml2aws
 docker-credential-helper-ecr
 dive
+wget
