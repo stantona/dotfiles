@@ -11,6 +11,8 @@ syntax on
 colorscheme solarized
 
 nnoremap <leader>n :NERDTreeFocus<CR>
-autocmd VimEnter * NERDTree
 
 set rtp+=/opt/homebrew/opt/fzf
+
+" Removes trailing whitespace on save
+autocmd BufWritePre * :%s/\s\+$//e
