@@ -17,6 +17,3 @@
 [submodule "profiles/common/config/.vim/bundle/fzf"]
 	path = profiles/common/config/.vim/bundle/fzf
 	url = git@github.com:junegunn/fzf.vim.git
-[submodule "profiles/common/config/.vim/bundle/vim-fugitive"]
-	path = profiles/common/config/.vim/bundle/vim-fugitive
-	url = git@github.com:tpope/vim-fugitive.git
