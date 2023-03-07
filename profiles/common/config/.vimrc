@@ -16,3 +16,6 @@ set rtp+=/opt/homebrew/opt/fzf
 
 " Removes trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
+
+nmap <C-b> :Buffers<CR>
+nmap <C-f> :Files<CR>
