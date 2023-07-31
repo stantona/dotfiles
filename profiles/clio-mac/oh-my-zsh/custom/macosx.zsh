@@ -1,3 +1,4 @@
+export PATH="${PATH}:${HOME}/bin"
 export PATH="${PATH}:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 export PATH="${PATH}:${HOME}/Library/Python/3.8/bin"
 # Support psql (client postgresql, see: https://stackoverflow.com/questions/44654216/correct-way-to-install-psql-without-full-postgres-on-macos)
@@ -6,7 +7,7 @@ export DOTBOT_PROFILE_CLIO_MAC=1
 
 alias cdc="cd ${HOME}/Documents/Projects/clio"
 alias cdp="cd ${HOME}/Documents/Projects/personal"
-alias al="saml2aws login --skip-prompt"
+alias al="okta-aws-cli login"
 
 open-prs () {
   local repo="${1:-}"
@@ -22,4 +23,9 @@ open-prs () {
 if command -v kubectl &>/dev/null; then
   source <(kubectl completion zsh)
   alias k=kubectl
+fi
+
+# Silversearcher: always search hidden files
+if command -v ag &>/dev/null; then
+  alias ag='ag --hidden'
 fi

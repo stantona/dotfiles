@@ -6,7 +6,7 @@ gh
 jq
 lazydocker
 helm
-saml2aws
+okta-aws-cli
 docker-credential-helper-ecr
 dive
 wget

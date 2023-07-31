@@ -103,3 +103,11 @@ source $ZSH/oh-my-zsh.sh
 eval "$(rbenv init - zsh)"
 
 eval "$(dev _hook)"
+
+source /Users/astanton/.docker/init-zsh.sh || true # Added by Docker Desktop
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/astanton/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/astanton/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/astanton/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/astanton/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
