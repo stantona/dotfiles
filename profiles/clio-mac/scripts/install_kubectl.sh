@@ -1,6 +1,6 @@
 #!/bin/bash
 
-KUBECTL_VERSION='1.21.0'
+KUBECTL_VERSION='1.23.0'
 
 if [[ -f /usr/local/bin/kubectl ]]; then
   sudo rm /usr/local/bin/kubectl

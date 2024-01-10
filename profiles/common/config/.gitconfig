@@ -14,7 +14,7 @@
   name = Adam Stanton
   email = adam.stanton@clio.com
 [core]
-  editor = vim
+  editor = code --wait
   preloadindex = true
 	excludesfile = ~/.gitignore
 [color]

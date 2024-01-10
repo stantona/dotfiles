@@ -3,6 +3,7 @@ export PATH="${PATH}:/Applications/Visual Studio Code.app/Contents/Resources/app
 export PATH="${PATH}:${HOME}/Library/Python/3.8/bin"
 # Support psql (client postgresql, see: https://stackoverflow.com/questions/44654216/correct-way-to-install-psql-without-full-postgres-on-macos)
 export PATH="${PATH}:/opt/homebrew/opt/libpq/bin"
+export PATH="${PATH}:/opt/homebrew/opt/dotnet@6/bin"
 export DOTBOT_PROFILE_CLIO_MAC=1
 
 alias cdc="cd ${HOME}/Documents/Projects/clio"
@@ -23,9 +24,4 @@ open-prs () {
 if command -v kubectl &>/dev/null; then
   source <(kubectl completion zsh)
   alias k=kubectl
-fi
-
-# Silversearcher: always search hidden files
-if command -v ag &>/dev/null; then
-  alias ag='ag --hidden'
 fi
