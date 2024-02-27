@@ -1,10 +1,15 @@
 export PATH="${PATH}:${HOME}/bin"
 export PATH="${PATH}:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 export PATH="${PATH}:${HOME}/Library/Python/3.8/bin"
+export PATH="${PATH}:${HOME}/.cargo/bin"
+
 # Support psql (client postgresql, see: https://stackoverflow.com/questions/44654216/correct-way-to-install-psql-without-full-postgres-on-macos)
 export PATH="${PATH}:/opt/homebrew/opt/libpq/bin"
 export PATH="${PATH}:/opt/homebrew/opt/dotnet@6/bin"
 export DOTBOT_PROFILE_CLIO_MAC=1
+
+export GOPATH="${HOME}/go"
+
 
 alias cdc="cd ${HOME}/Documents/Projects/clio"
 alias cdp="cd ${HOME}/Documents/Projects/personal"

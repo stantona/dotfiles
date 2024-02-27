@@ -8,6 +8,7 @@ execute pathogen#infect()
 filetype plugin indent on
 
 syntax on
+set background=dark
 colorscheme solarized
 
 nnoremap <leader>n :NERDTreeFocus<CR>
