@@ -10,11 +10,12 @@
   tree = log --graph --pretty=online --abbrev-commit --decorate --branches
 [branch]
   autosetuprebase = always
+  sort = committerdate
 [user]
   name = Adam Stanton
   email = adam.stanton@clio.com
 [core]
-  editor = vim
+  editor = nvim
   preloadindex = true
 	excludesfile = ~/.gitignore
 [color]

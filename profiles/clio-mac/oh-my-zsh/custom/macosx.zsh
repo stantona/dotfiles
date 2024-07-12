@@ -14,19 +14,11 @@ export GOPATH="${HOME}/go"
 alias cdc="cd ${HOME}/Documents/Projects/clio"
 alias cdp="cd ${HOME}/Documents/Projects/personal"
 alias al="okta-aws-cli login"
+alias ghp="gh search prs --author '@me' --state open"
+alias ghi="gh search issues --assignee '@me' --state open"
 
-open-prs () {
-  local repo="${1:-}"
+# For themes and plugins installed through Homebrew
+fpath+=("$(brew --prefix)/share/zsh/site-functions")
 
-  if [[ -z "${repo}" ]]; then
-    gh search prs --state=open --author "@me" --json url | jq --raw-output '.[] | .url'
-  else
-    gh search prs --repo "${repo}" --state=open --author "@me" --json url | jq --raw-output '.[] | .url'
-  fi
-}
-
-# Enable kubectl auto-completion
-if command -v kubectl &>/dev/null; then
-  source <(kubectl completion zsh)
-  alias k=kubectl
-fi
+autoload -U promptinit; promptinit
+prompt pure
