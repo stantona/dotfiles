@@ -1,3 +1,5 @@
+[init]
+  defaultBranch = main
 [alias]
   co = checkout
   d = diff
@@ -15,7 +17,7 @@
   name = Adam Stanton
   email = adam.stanton@clio.com
 [core]
-  editor = nvim
+  editor = cursor --wait
   preloadindex = true
 	excludesfile = ~/.gitignore
 [color]

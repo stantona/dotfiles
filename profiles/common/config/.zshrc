@@ -111,3 +111,5 @@ if [ -f '/Users/astanton/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Us
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/astanton/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/astanton/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+
+[[ -d "/opt/clio/bin/devxp" ]] && export PATH="/opt/clio/bin/devxp:$PATH"
